@@ -1,0 +1,28 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "jspm_packages": true,
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "*.ts": "typescriptreact"
+  },
+  "editor.autoClosingBrackets": "beforeWhitespace",
+  "workbench.colorCustomizations": {
+    "editor.background": "#171c20",
+    "editor.findMatchBackground": "#ff008056",
+    "sideBar.background": "#171c20",
+    "editor.lineHighlightBackground": "#171c20",
+    "editorIndentGuide.background": "#333333",
+    "editorBracketMatch.border": "#171c20",
+    "editorBracketMatch.background": "#424242",
+    "activityBar.background": "#133419",
+    "titleBar.activeBackground": "#1B4924",
+    "titleBar.activeForeground": "#F7FCF8"
+  }
+}
