@@ -4,9 +4,9 @@ import './Header.css'
 import { ReactComponent as ReactLogo } from '@media/icons/adjustments-alt.svg'
 
 interface props {
-  title?: String,
-  titleClassName?: String,
-  number?: Number
+  title?: string,
+  titleClassName?: string,
+  number?: number
 }
 
 const Header: React.FC<props> = (props) => {
