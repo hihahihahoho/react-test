@@ -20,9 +20,6 @@
     "editor.lineHighlightBackground": "#171c20",
     "editorIndentGuide.background": "#333333",
     "editorBracketMatch.border": "#171c20",
-    "editorBracketMatch.background": "#424242",
-    "activityBar.background": "#133419",
-    "titleBar.activeBackground": "#1B4924",
-    "titleBar.activeForeground": "#F7FCF8"
+    "editorBracketMatch.background": "#424242"
   }
 }
