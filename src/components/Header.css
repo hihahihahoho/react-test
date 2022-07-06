@@ -1,3 +1,7 @@
 .class-name {
   background-color: blue;
 }
+
+.inline-block {
+  display: inline-block;
+}

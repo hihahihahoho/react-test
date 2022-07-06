@@ -24,6 +24,7 @@ const CounterHooks: React.FC<props> = (props) => {
     <div>
       <button onClick={buttonMinusClick}>-</button>
       <span>{count}</span>
+      {props.children}
       <button onClick={buttonPlusClick}>+</button>
     </div>
   )
@@ -31,7 +32,7 @@ const CounterHooks: React.FC<props> = (props) => {
 }
 
 CounterHooks.defaultProps = {
-  initialCount: 0
+  initialCount: 3
 }
 
 export default CounterHooks

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { DatePicker } from 'antd';
 
 interface props {
   initialCount?: number
@@ -8,7 +9,16 @@ interface state {
   count?: number
 }
 
-export default class Counter extends Component<props, state> {
+type AppProps = {
+  message: string;
+};
+
+export function Welcome({ message }: AppProps) {
+  return (
+    <h1><DatePicker></DatePicker></h1>
+  );
+}
+class Counter extends Component<props, state> {
 
   constructor(props: props) {
     super(props);
@@ -39,3 +49,5 @@ export default class Counter extends Component<props, state> {
     });
   }
 }
+
+export default Counter;
