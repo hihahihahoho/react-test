@@ -1,5 +1,6 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { DatePicker, DatePickerProps, Input, Select } from "antd";
+import { useResizeDetector } from "react-resize-detector";
 const { Option } = Select;
 
 interface DefaultProps {
@@ -16,25 +17,22 @@ const inputState = {
 
 const UDatePickerLabel: React.FC<DefaultProps> = (props) => {
   let focusText: string = '';
-  const targetRef = useRef<any>(null);
-  const [dimensions, setDimensions] = useState({ width: 0 });
   focusText = props.focus ? 'is-focused' : '';
-  useLayoutEffect(() => {
-    setDimensions({
-      width: targetRef?.current?.offsetWidth,
-    });
-  }, []);
-  const style = `.p-ant-left-${dimensions.width}.ant-picker, .p-ant-left-${dimensions.width} .ant-select-selector { padding-left: ${dimensions.width}px!important }`
-  console.log(dimensions)
+  let { width, ref } = useResizeDetector();
+  if (width) (
+    width = Math.ceil(width)
+  )
+  const style = `.p-ant-left-${width}.ant-picker, .p-ant-left-${width} .ant-select-selector { padding-left: ${width}px!important }`;
+  console.log(width)
   return (
-    <div className={`form-group ${focusText} p-ant-left-${dimensions.width}`}>
+    <div className={`form-group ${focusText} p-ant-left-${width}`}>
       <style> {style}</style>
       {
         props.title && <div className="title">
           {props.title}
         </div>
       }
-      <div className="text-left inline-block" ref={targetRef}>{props.textLeft}</div>
+      <div className="text-left inline-block" ref={ref}><div className="inner">{props.textLeft}</div></div>
       <div className="datepicker">
         {/* {Children.map(props.children, (children) => {
           return (

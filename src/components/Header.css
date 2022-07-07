@@ -5,3 +5,22 @@
 .inline-block {
   display: inline-block;
 }
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  transition: none !important;
+}
+
+.form-group .text-left {
+  position: absolute;
+  left: 0;
+
+  z-index: 99;
+}
+.form-group .text-left .inner > img {
+  max-width: 100%;
+}
+.form-group .text-left .inner {
+  padding-left: 12px;
+  max-width: 200px;
+  padding-right: 12px;
+}

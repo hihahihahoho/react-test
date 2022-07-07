@@ -19,7 +19,7 @@ function App() {
       <DatePicker></DatePicker>
       <DatePicker></DatePicker>
       <Welcome message='ádf'></Welcome>
-      <UDatePicker title='Tùng' picker='week' placeholder='Chọn ngày' textLeft={ <img src="https://design.vnpay.vn/web/vnpay/vban-new/static/media/brands/logo.3bfb72a1.svg" alt="" /> }></UDatePicker>
+      <UDatePicker title='Tùng' picker='week' placeholder='Chọn ngày' textLeft={ <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmlldG5hbSUyMGJlYWNofGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="" /> }></UDatePicker>
       <Form.Item
         label="Username"
         name="username"
