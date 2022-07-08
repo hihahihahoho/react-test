@@ -80,18 +80,6 @@ const UDatePicker: React.FC<Omit<props, 'focus'>> = (props) => {
         <Option value="Tùng">Tùng</Option>
         <Option value="Hùng">Hùng</Option>
       </Select>
-      <Select
-        showSearch={false}
-        mode="multiple"
-        allowClear
-        style={{ width: '100%' }}
-        placeholder="Please select"
-        defaultValue={['a10', 'c12']}
-      >
-        <Option value="Tùng">Tùng</Option>
-        <Option value="Hùng">Hùng</Option>
-      </Select>
-      <DatePicker suffixIcon='' onFocus={onFocus} onBlur={onBlur} {...props} ></DatePicker>
     </UDatePickerLabel>
   )
 }
