@@ -5,7 +5,8 @@ const { Option } = Select;
 
 interface DefaultProps {
   title?: string,
-  textLeft?: any,
+  contentLeft?: any,
+  contentRight?: any,
   focus?: boolean,
 }
 
@@ -18,30 +19,42 @@ const inputState = {
 const UDatePickerLabel: React.FC<DefaultProps> = (props) => {
   let focusText: string = '';
   focusText = props.focus ? 'is-focused' : '';
-  let { width, ref } = useResizeDetector();
-  if (width) (
-    width = Math.ceil(width)
-  )
-  const style = `.p-ant-left-${width}.ant-picker, .p-ant-left-${width} .ant-select-selector { padding-left: ${width}px!important }`;
-  console.log(width)
+  let { width: widthContentLeft, ref: refContentLeft } = useResizeDetector();
+  let { width: widthContentRight, ref: refContentRight } = useResizeDetector();
+  widthContentLeft = widthContentLeft ? Math.ceil(widthContentLeft) : 0
+  widthContentRight = widthContentRight ? Math.ceil(widthContentRight) : 0
+  const styleContentLeft = `.p-ant-left-${widthContentLeft}.ant-picker, .p-ant-left-${widthContentLeft} .ant-select-selector { padding-left: ${widthContentLeft}px!important }`;
+  const styleContentRight = `.p-ant-left-${widthContentRight}.ant-picker, .p-ant-left-${widthContentRight} .ant-select-selector { padding-right: ${widthContentRight}px!important }`;
+  console.log(widthContentLeft)
   return (
-    <div className={`form-group ${focusText} p-ant-left-${width}`}>
-      <style> {style}</style>
+    <div className={`form-group ${focusText} p-ant-left-${widthContentLeft}`}>
       {
-        props.title && <div className="title">
+        props.contentLeft &&
+        <style>{styleContentLeft}</style>
+      }
+      {
+        props.contentLeft &&
+        <style>{styleContentRight}</style>
+      }
+      {
+        props.title && <div className="form-title">
           {props.title}
         </div>
       }
-      <div className="text-left inline-block" ref={ref}><div className="inner">{props.textLeft}</div></div>
-      <div className="datepicker">
-        {/* {Children.map(props.children, (children) => {
-          return (
-            React.isValidElement(children) && cloneElement(children, { className: `p-ant-left-${dimensions.width}` })
-          )
-        })} */}
-        {props.children}
+      <div className="form-inner">
+        {
+          props.contentLeft &&
+          <div className="form-inner-left" ref={refContentLeft}><div className="inner">{props.contentLeft}</div></div>
+        }
+        <div className="datepicker">
+          {props.children}
+        </div>
+        {
+          props.contentRight &&
+          <div className="form-inner-right" ref={refContentRight}><div className="inner">{props.contentRight}</div></div>
+        }
       </div>
-    </div>
+    </div >
   )
 }
 
