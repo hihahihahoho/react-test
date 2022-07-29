@@ -28,3 +28,61 @@
 .width-100 {
   width: 100%
 }
+
+.ant-select-dropdown.ant-slide-up-enter.ant-slide-up-enter-active.ant-select-dropdown-placement-bottomLeft, .ant-select-dropdown.ant-slide-up-appear.ant-slide-up-appear-active.ant-select-dropdown-placement-bottomLeft {
+  animation-name: antSlideUpIn2 !important;
+  opacity: 1 !important;
+}
+
+.ant-select-dropdown.ant-slide-up-leave.ant-slide-up-leave-active.ant-select-dropdown-placement-bottomLeft {
+  animation-name: antSlideUpOut2 !important;
+}
+
+.ant-slide-up-enter, .ant-slide-up-appear {
+  animation-duration: 0.15s !important;
+}
+
+@keyframes antSlideUpIn2 {
+  0% {
+    opacity:0;
+     transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity:1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes antSlideUpOut2 {
+  0% {
+     transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.ant-select-dropdown {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  top: auto !important;
+}
+.ant-select-dropdown > div {
+  position: relative;
+  z-index: 2;
+  background-color: white
+}
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+}

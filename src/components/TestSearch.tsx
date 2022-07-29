@@ -1,6 +1,5 @@
 import { Select } from 'antd';
 import axios from 'axios';
-import jsonp from 'fetch-jsonp';
 import qs from 'qs';
 import React, { useState } from 'react';
 import Highlighter from "react-highlight-words";

@@ -1,11 +1,13 @@
 
+import loading from './media/loading.svg'
 import Header from './components/Header'
 import Counter, { Welcome } from './components/Counter'
 import CounterHooks from './components/CounterHooks'
-import { DatePicker, Form, Input } from 'antd';
+import { DatePicker, Form, Input, Select, Image, Spin, Alert } from 'antd';
 import 'antd/dist/antd.css';
-import { UDatePicker } from './components/Udatepicker';
+import { CustomAntdSelect } from './components/Udatepicker';
 import SearchInput from './components/TestSearch';
+const { Option } = Select;
 
 function App() {
   return (
@@ -20,15 +22,31 @@ function App() {
       <DatePicker></DatePicker>
       <DatePicker></DatePicker>
       <Welcome message='ádf'></Welcome>
-      <UDatePicker title='Tùng' placeholder='Chọn ngày' contentLeft={ <img src="" alt="" /> }></UDatePicker>
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[{ required: true, message: 'Please input your username!' }]}
-      >
-        <Input />
-      </Form.Item>
+      <Form layout="vertical" autoComplete="off">
+        <Form.Item
+          name="username"
+        >
+          <CustomAntdSelect placeholder='Chọn ngày' title='Select' allowClear={true} onChange={(evt) => console.log(evt)}>
+            <Option value="jack">Jack (100)</Option>
+            <Option value="lucy">Lucy (101)</Option>
+          </CustomAntdSelect>
+        </Form.Item>
+        <Form.Item
+          name="username2"
+        >
+          <Input></Input>
+        </Form.Item>
+      </Form>
+      
+      <Spin tip="Loading..." indicator={(<Image src={loading}></Image>)}>
+        <Alert
+          message="Alert message title"
+          description="Further details about the context of this alert."
+          type="info"
+        />
+      </Spin>
       <SearchInput></SearchInput>
+
     </>
   );
 }
