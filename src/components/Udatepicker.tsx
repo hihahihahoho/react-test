@@ -16,6 +16,28 @@ interface LabelProp {
 
 type props = SelectProps & LabelProp;
 
+type Props = {
+  children: React.ReactElement;
+  waitBeforeShow?: number;
+};
+
+const Delayed = ({ children, waitBeforeShow = 200 }: Props) => {
+  const [isShown, setIsShown] = useState(false);
+
+  useEffect(() => {
+    let timeout = setTimeout(() => {
+      setIsShown(true);
+    }, waitBeforeShow);
+    return () => { clearTimeout(timeout) }
+  }, [waitBeforeShow]);
+
+  return (
+    <div className={isShown ? `pointer-child-show` : ''}>
+      {children}
+    </div>
+  )
+};
+
 const ULabel: React.FC<LabelProp> = (props) => {
   let focusText: string = '';
   let hasValueText: string = '';
@@ -56,17 +78,20 @@ const ULabel: React.FC<LabelProp> = (props) => {
         }
         <AnimatePresence>
           {
-            props.backdropShow &&
-            <Modal>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  opacity: { duration: 0.2, },
-                }}
-                className={`backdrop`}></motion.div>
-            </Modal>
+            props.backdropShow && (
+              <Modal>
+                <Delayed>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                      opacity: { duration: 0.2, },
+                    }}
+                    className={`backdrop`}></motion.div>
+                </Delayed>
+              </Modal>
+            )
           }
         </AnimatePresence>
       </div>
@@ -100,12 +125,13 @@ const CustomAntdSelect: React.FC<props> = (props) => {
   const [searchText, setsearchText] = useState("");
   const [backdrop, setbackdrop] = useState(false);
   const inputRef = useRef<Input>(null);
+
   const onDropdownVisibleChange = (open: boolean) => {
     open ? setFocusSelect(true) : setFocusSelect(false);
     open ? setbackdrop(true) : setbackdrop(false);
   }
   const onClick = (evt: any) => {
-    inputRef?.current?.focus();
+    focusSelect ? inputRef?.current?.focus() : inputRef?.current?.blur()
     if (props.onClick) {
       props.onClick(evt)
     }

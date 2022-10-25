@@ -1,11 +1,13 @@
 {
   "extends": "./tsconfig.path.json",
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES6",
     "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+      "DOM",
+      "ES6",
+      "DOM.Iterable",
+      "ScriptHost",
+      "ES2016.Array.Include"
     ],
     "allowJs": true,
     "skipLibCheck": true,

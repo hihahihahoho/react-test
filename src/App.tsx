@@ -1,9 +1,9 @@
 
-import loading from './media/loading.svg'
+// import loading from './media/loading.svg'
 import Header from './components/Header'
 import Counter, { Welcome } from './components/Counter'
 import CounterHooks from './components/CounterHooks'
-import { DatePicker, Form, Input, Select, Image, Spin, Alert } from 'antd';
+import { DatePicker, Form, Input, Select } from 'antd';
 import 'antd/dist/antd.css';
 import { CustomAntdSelect } from './components/Udatepicker';
 import SearchInput from './components/TestSearch';
@@ -34,17 +34,11 @@ function App() {
         <Form.Item
           name="username2"
         >
+        </Form.Item>
+        <Form.Item>
           <Input></Input>
         </Form.Item>
       </Form>
-      
-      <Spin tip="Loading..." indicator={(<Image src={loading}></Image>)}>
-        <Alert
-          message="Alert message title"
-          description="Further details about the context of this alert."
-          type="info"
-        />
-      </Spin>
       <SearchInput></SearchInput>
 
     </>
