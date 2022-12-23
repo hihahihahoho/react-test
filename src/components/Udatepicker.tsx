@@ -39,8 +39,8 @@ const Delayed = ({ children, waitBeforeShow = 200 }: Props) => {
 };
 
 const ULabel: React.FC<LabelProp> = (props) => {
-  let focusText: string = '';
-  let hasValueText: string = '';
+  let focusText = '';
+  let hasValueText = '';
   focusText = props.focus ? 'is-focused' : '';
   hasValueText = props.hasValue ? 'is-has-value' : '';
   let { width: widthContentLeft, ref: refContentLeft } = useResizeDetector();
